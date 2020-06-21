@@ -1,11 +1,7 @@
-extends _partial/layout
+extends includes/layout.pug
 
 block content
-    include _mixin/post
-    +homePost()
-
-block extra
-    if config.jekyll == null || config.jekyll.project == null || config.jekyll.project
-        include _components/project
-    if config.jekyll == null || config.jekyll.selfIntro == null || config.jekyll.selfIntro
-        include _components/selfintro
+  include ./includes/mixins/post-ui.pug
+  #recent-posts.recent-posts
+    +postUI
+    include includes/pagination.pug
